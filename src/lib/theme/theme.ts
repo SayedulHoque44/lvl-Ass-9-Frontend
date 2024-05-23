@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { Provider } from "react-redux";
 
 export const theme = createTheme({
   palette: {
@@ -24,10 +23,11 @@ export const theme = createTheme({
     },
     MuiContainer: {
       defaultProps: {
-        maxWidth: "lg",
+        maxWidth: "xl",
       },
     },
   },
+
   typography: {
     body1: {
       color: "#0B1134CC",
