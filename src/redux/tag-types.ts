@@ -1,3 +1,6 @@
-export enum tagTypes {}
+export enum tagTypes {
+  lostReports = "lostReports",
+  foundReports = "foundReports",
+}
 
-export const tagTypesList = [];
+export const tagTypesList = [tagTypes.lostReports, tagTypes.foundReports];

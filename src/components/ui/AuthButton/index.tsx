@@ -9,6 +9,7 @@ const AuthButton = () => {
   const userInfo = getUserInfo();
   const router = useRouter();
 
+  // console.log(userInfo);
   const handleLogOut = () => {
     removeUser();
     router.refresh();
@@ -21,7 +22,7 @@ const AuthButton = () => {
       direction={"row"}
       gap={2}
     >
-      {userInfo?.userId ? (
+      {userInfo?.id ? (
         <>
           <Button color="error" onClick={handleLogOut}>
             Logout

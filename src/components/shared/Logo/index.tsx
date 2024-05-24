@@ -7,9 +7,9 @@ const Logo = () => {
   return (
     <Typography component={Link} href="/">
       <Image
-        src={`https://i.ibb.co/dBSyMd8/Screenshot-26-removebg-preview.png`}
-        width={150}
-        height={100}
+        src={`https://i.ibb.co/p3GNQr9/Screenshot-27-removebg-preview.png`}
+        width={200}
+        height={150}
         alt="logo"
       />
     </Typography>

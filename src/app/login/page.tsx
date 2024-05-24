@@ -1,7 +1,7 @@
 "use client";
 import PHForm from "@/components/Forms/PHForm";
 import PHInput from "@/components/Forms/PHInput";
-import Logo from "@/components/ui/Logo";
+
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
@@ -13,6 +13,7 @@ import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import Logo from "@/components/shared/Logo";
 
 export const validationSchema = z.object({
   email: z.string().email("Please enter a valid email address!"),

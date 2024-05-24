@@ -1,13 +1,14 @@
-import Logo from "@/components/ui/Logo";
 import { Box, Container, GlobalStyles, Stack, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
+import Logo from "../Logo";
 
 const Navbar = () => {
   const AuthButton = dynamic(() => import("@/components/ui/AuthButton/index"), {
     ssr: false,
   });
+
   return (
     <Container>
       <Stack
