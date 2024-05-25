@@ -9,11 +9,12 @@ const AuthButton = () => {
   const userInfo = getUserInfo();
   const router = useRouter();
 
-  // console.log(userInfo);
+  console.log(userInfo);
   const handleLogOut = () => {
     removeUser();
     router.refresh();
   };
+
   return (
     <Stack
       ml={2}
@@ -27,7 +28,9 @@ const AuthButton = () => {
           <Button color="error" onClick={handleLogOut}>
             Logout
           </Button>
-          <Avatar></Avatar>
+          <Link href={`/dashboard/my-profile/${userInfo?.id}`}>
+            <Avatar></Avatar>
+          </Link>
         </>
       ) : (
         <Button component={Link} href="/login">

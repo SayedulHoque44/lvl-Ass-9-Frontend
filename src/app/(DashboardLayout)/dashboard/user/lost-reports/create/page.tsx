@@ -1,37 +1,34 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import PHForm from "@/components/Forms/PHForm";
 import PHInput from "@/components/Forms/PHInput";
-
 import { userLogin } from "@/services/actions/userLogin";
-import { storeUserInfo } from "@/services/auth.services";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import Logo from "@/components/shared/Logo";
 
 const validationSchema = z.object({
   email: z.string().email("Please enter a valid email address!"),
   password: z.string().min(4, "Must be at least 4 characters"),
 });
 
-const LoginPage = () => {
+const page = () => {
   const router = useRouter();
   const [error, setError] = useState("");
 
   const handleLogin = async (values: FieldValues) => {
-    // console.log(values);
+    console.log(values);
+    return;
     try {
       const res = await userLogin(values);
       // console.log(res);
       if (res?.data?.accessToken) {
         toast.success(res?.message);
-        storeUserInfo({ accessToken: res?.data?.accessToken });
         router.push("/");
       } else {
         setError(res.message);
@@ -46,7 +43,7 @@ const LoginPage = () => {
     <Container>
       <Stack
         sx={{
-          height: "100vh",
+          minHeight: `100vh`,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -68,11 +65,8 @@ const LoginPage = () => {
             }}
           >
             <Box>
-              <Logo />
-            </Box>
-            <Box>
               <Typography variant="h6" fontWeight={600}>
-                Login
+                Create Lost Report
               </Typography>
             </Box>
           </Stack>
@@ -120,24 +114,16 @@ const LoginPage = () => {
                   />
                 </Grid>
               </Grid>
-
-              <Typography mb={1} textAlign="end" component="p" fontWeight={300}>
-                Forgot Password?
-              </Typography>
-
               <Button
                 sx={{
                   margin: "10px 0px",
                 }}
                 fullWidth={true}
                 type="submit"
+                disabled
               >
-                Login
+                Create
               </Button>
-              <Typography component="p" fontWeight={300}>
-                Don&apos;t have an account?{" "}
-                <Link href="/register">Create an account</Link>
-              </Typography>
             </PHForm>
           </Box>
         </Box>
@@ -146,4 +132,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default page;
