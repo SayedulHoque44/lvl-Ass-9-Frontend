@@ -57,9 +57,9 @@ const page = () => {
     try {
       const res = await createReport(values);
       // console.log(res);
-      if (res?.data?.id) {
-        toast.success("Lost Report Created Successfully!");
-        router.push("/dashboard/user/lost-reports");
+      if (res?.data.success) {
+        // toast.success(res?.message);
+        // router.push("/");
       } else {
         setError(res.data.message);
         // console.log(res);
@@ -96,7 +96,7 @@ const page = () => {
           >
             <Box>
               <Typography variant="h6" fontWeight={600}>
-                Create Lost Report
+                Create Found Report
               </Typography>
             </Box>
           </Stack>

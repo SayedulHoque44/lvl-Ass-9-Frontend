@@ -1,7 +1,5 @@
-import React from "react";
-
-const page = () => {
+const UserManagmentPage = () => {
   return <div>user mana</div>;
 };
 
-export default page;
+export default UserManagmentPage;

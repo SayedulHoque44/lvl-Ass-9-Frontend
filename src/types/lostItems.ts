@@ -2,7 +2,7 @@ export interface LostItem {
   id: string;
   userId: string;
   category: string;
-  found: boolean;
+  founded: boolean;
   name: string;
   description: string;
   DateAndlocation: string;

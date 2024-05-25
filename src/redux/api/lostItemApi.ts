@@ -5,12 +5,15 @@ import { IMeta } from "@/types/common";
 export const lostItemApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     createLostReport: build.mutation({
-      query: (data) => ({
-        url: "/lost-items",
-        method: "POST",
-        contentType: "multipart/form-data",
-        data,
-      }),
+      query: (data) => {
+        // console.log(data);
+        return {
+          url: "/lost-items",
+          method: "POST",
+          contentType: "application/json",
+          data,
+        };
+      },
       invalidatesTags: [tagTypes.lostReports],
     }),
 
@@ -18,7 +21,7 @@ export const lostItemApi = baseApi.injectEndpoints({
       query: ({ data, id }) => ({
         url: `/lost-items/${id}`,
         method: "PUT",
-        contentType: "multipart/form-data",
+        contentType: "application/json",
         data,
       }),
       invalidatesTags: [tagTypes.lostReports],

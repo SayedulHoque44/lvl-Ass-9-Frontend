@@ -4,6 +4,7 @@ import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 import FlagCircleOutlinedIcon from "@mui/icons-material/FlagCircleOutlined";
+import { useGetSingleFoundItemQuery } from "@/redux/api/foundItemAPi";
 
 type TProps = {
   params: {
@@ -13,7 +14,7 @@ type TProps = {
 
 const page = ({ params }: TProps) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data } = useGetSingleLostItemQuery(params.id);
+  const { data } = useGetSingleFoundItemQuery(params.id);
   // console.log(data);
   return (
     <Container>

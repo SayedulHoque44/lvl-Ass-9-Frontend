@@ -1,6 +1,7 @@
 "use client";
-import PHForm from "@/components/Forms/PHForm";
-import PHInput from "@/components/Forms/PHInput";
+import CustomForm from "@/components/Forms/CustomForm";
+import CustomInput from "@/components/Forms/CustomInput";
+
 import Logo from "@/components/shared/Logo";
 import { userRegistration } from "@/services/actions/userRegistration";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -42,7 +43,7 @@ const RegisterPage = () => {
 
     try {
       const res = await userRegistration(values);
-      console.log(res);
+      // console.log(res);
       if (res?.success) {
         toast.success(res?.message);
         router.push("/login");
@@ -80,9 +81,8 @@ const RegisterPage = () => {
               alignItems: "center",
             }}
           >
-            <Box>
-              <Logo />
-            </Box>
+            <Logo />
+
             <Box>
               <Typography variant="h6" fontWeight={600}>
                 Create An Account / Register
@@ -107,7 +107,7 @@ const RegisterPage = () => {
           )}
 
           <Box>
-            <PHForm
+            <CustomForm
               formReset
               onSubmit={handleLogin}
               resolver={zodResolver(validationSchema)}
@@ -120,7 +120,7 @@ const RegisterPage = () => {
             >
               <Grid container spacing={2} my={1}>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="name"
                     label="User name"
                     type="text"
@@ -128,7 +128,7 @@ const RegisterPage = () => {
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="email"
                     label="Email"
                     type="email"
@@ -136,7 +136,7 @@ const RegisterPage = () => {
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="password"
                     label="Password"
                     type="password"
@@ -144,7 +144,7 @@ const RegisterPage = () => {
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="cpassword"
                     label="Confirm Password"
                     type="password"
@@ -166,7 +166,7 @@ const RegisterPage = () => {
                 Already have an account?{" "}
                 <Link href="/login">Login an account</Link>
               </Typography>
-            </PHForm>
+            </CustomForm>
           </Box>
         </Box>
       </Stack>

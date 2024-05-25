@@ -9,7 +9,7 @@ const AuthButton = () => {
   const userInfo = getUserInfo();
   const router = useRouter();
 
-  console.log(userInfo);
+  // console.log(userInfo);
   const handleLogOut = () => {
     removeUser();
     router.refresh();

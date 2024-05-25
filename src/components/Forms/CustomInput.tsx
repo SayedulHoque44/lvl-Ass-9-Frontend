@@ -12,7 +12,7 @@ type TInputProps = {
   required?: boolean;
 };
 
-const PHInput = ({
+const CustomInput = ({
   name,
   label,
   type = "text",
@@ -45,4 +45,4 @@ const PHInput = ({
   );
 };
 
-export default PHInput;
+export default CustomInput;

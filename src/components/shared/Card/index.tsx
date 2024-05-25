@@ -28,6 +28,7 @@ const Card = ({ item, children }: { item: any; children?: ReactNode }) => {
         width={200}
         alt="img"
       />
+      <Typography fontWeight={600}>{item?.name}</Typography>
       <Typography>{item?.description}</Typography>
       <Stack direction={"row"} alignItems={"center"} gap={2} my={2}>
         <FlagCircleOutlinedIcon />

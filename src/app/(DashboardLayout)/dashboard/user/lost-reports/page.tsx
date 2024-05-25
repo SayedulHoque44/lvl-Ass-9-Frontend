@@ -9,22 +9,27 @@ import React from "react";
 import SingleCard from "./components/SingleCard";
 import AddIcon from "@mui/icons-material/Add";
 import { usePathname } from "next/navigation";
-const page = () => {
-  const { data } = useGetAllLostItemsQuery({ limit: 100 });
+import { getUserInfo } from "@/services/auth.services";
+import Logo from "@/components/shared/Logo";
 
-  // console.log(data);
+const page = () => {
+  const userInfo = getUserInfo();
+  const { data } = useGetAllLostItemsQuery({
+    limit: 100,
+    userId: userInfo?.id,
+  });
   return (
     <Container>
       <Box py={10}>
         <Typography variant="h4" textAlign={"center"} my={2}>
           Manage Your Lost Reports
         </Typography>
-
-        <Button LinkComponent={Link} href={`${usePathname()}/create`}>
-          Create Lost Report
-          <AddIcon />
-        </Button>
-
+        <Link href={`${usePathname()}/create`}>
+          <Button>
+            Create Lost Report
+            <AddIcon />
+          </Button>
+        </Link>
         <Grid container gap={4} justifyContent={"center"} mt={5}>
           {data?.data?.map((item: LostItem) => (
             <SingleCard key={item?.id} item={item} />

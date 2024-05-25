@@ -16,7 +16,7 @@ type TFormProps = {
   formReset?: boolean;
 } & TFormConfig;
 
-const PHForm = ({
+const CustomForm = ({
   children,
   onSubmit,
   resolver,
@@ -51,4 +51,4 @@ const PHForm = ({
   );
 };
 
-export default PHForm;
+export default CustomForm;

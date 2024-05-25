@@ -13,6 +13,7 @@ instance.interceptors.request.use(
   function (config) {
     // Do something before request is sent
     const accessToken = getFromLocalStorage(authKey);
+    // console.log(config);
 
     if (accessToken) {
       config.headers.Authorization = accessToken;
@@ -32,10 +33,19 @@ instance.interceptors.response.use(
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     // console.log(response);
-    const responseObject: ResponseSuccessType = {
-      data: response?.data?.data,
-      meta: response?.data?.meta,
-    };
+    let responseObject: ResponseSuccessType | {} = {};
+    if (response.data.success) {
+      responseObject = {
+        data: response?.data?.data,
+        meta: response?.data?.meta,
+      };
+    } else {
+      responseObject = {
+        data: response?.data,
+        // meta: response?.data?.meta,
+      };
+    }
+
     return responseObject;
   },
   async function (error) {

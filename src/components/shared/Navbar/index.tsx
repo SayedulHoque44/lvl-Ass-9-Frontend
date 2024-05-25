@@ -17,9 +17,8 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box>
-          <Logo />
-        </Box>
+        <Logo />
+
         <Stack
           direction="row"
           justifyContent="space-between"

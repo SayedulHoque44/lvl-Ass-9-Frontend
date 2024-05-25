@@ -14,7 +14,10 @@ import { Stack } from "@mui/material";
 
 import SideBar from "../SideBar/SideBar";
 
-import AuthButton from "@/components/ui/AuthButton";
+// import AuthButton from "@/components/ui/AuthButton";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
+import { isLoggedIn } from "@/services/auth.services";
 
 const drawerWidth = 240;
 
@@ -23,6 +26,10 @@ export default function DashboardDrawer({
 }: {
   children: React.ReactNode;
 }) {
+  const AuthButton = dynamic(() => import("@/components/ui/AuthButton/index"), {
+    ssr: false,
+  });
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
 

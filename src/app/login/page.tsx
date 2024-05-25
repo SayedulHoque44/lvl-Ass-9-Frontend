@@ -1,6 +1,4 @@
 "use client";
-import PHForm from "@/components/Forms/PHForm";
-import PHInput from "@/components/Forms/PHInput";
 
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
@@ -14,6 +12,8 @@ import { toast } from "sonner";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Logo from "@/components/shared/Logo";
+import CustomInput from "@/components/Forms/CustomInput";
+import CustomForm from "@/components/Forms/CustomForm";
 
 const validationSchema = z.object({
   email: z.string().email("Please enter a valid email address!"),
@@ -67,9 +67,8 @@ const LoginPage = () => {
               alignItems: "center",
             }}
           >
-            <Box>
-              <Logo />
-            </Box>
+            <Logo />
+
             <Box>
               <Typography variant="h6" fontWeight={600}>
                 Login
@@ -94,7 +93,7 @@ const LoginPage = () => {
           )}
 
           <Box>
-            <PHForm
+            <CustomForm
               onSubmit={handleLogin}
               resolver={zodResolver(validationSchema)}
               defaultValues={{
@@ -104,7 +103,7 @@ const LoginPage = () => {
             >
               <Grid container spacing={2} my={1}>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="email"
                     label="Email"
                     type="email"
@@ -112,7 +111,7 @@ const LoginPage = () => {
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <PHInput
+                  <CustomInput
                     name="password"
                     label="Password"
                     type="password"
@@ -138,7 +137,7 @@ const LoginPage = () => {
                 Don&apos;t have an account?{" "}
                 <Link href="/register">Create an account</Link>
               </Typography>
-            </PHForm>
+            </CustomForm>
           </Box>
         </Box>
       </Stack>

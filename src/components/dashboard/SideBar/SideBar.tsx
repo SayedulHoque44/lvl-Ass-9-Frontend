@@ -29,8 +29,6 @@ const SideBar = () => {
         justifyContent="center"
         alignItems="center"
         gap={1}
-        component={Link}
-        href="/"
       >
         <Logo />
       </Stack>
