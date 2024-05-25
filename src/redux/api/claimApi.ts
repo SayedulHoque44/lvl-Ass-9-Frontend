@@ -2,33 +2,33 @@ import { baseApi } from "./baseApi";
 import { tagTypes } from "../tag-types";
 import { IMeta } from "@/types/common";
 
-export const foundItemAPi = baseApi.injectEndpoints({
+export const claimApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
-    createFoundReport: build.mutation({
+    createClaim: build.mutation({
       query: (data) => {
         return {
-          url: "/found-items",
+          url: "/claims",
           method: "POST",
           contentType: "application/json",
           data,
         };
       },
-      invalidatesTags: [tagTypes.foundReports],
+      invalidatesTags: [tagTypes.foundReports, tagTypes.claimReports],
     }),
 
-    updateFoundReport: build.mutation({
+    updateClaimReport: build.mutation({
       query: ({ data, id }) => ({
-        url: `/found-items/${id}`,
+        url: `/claims/${id}`,
         method: "PUT",
         contentType: "application/json",
         data,
       }),
-      invalidatesTags: [tagTypes.foundReports],
+      invalidatesTags: [tagTypes.foundReports, tagTypes.claimReports],
     }),
 
-    getALLFoundItems: build.query({
+    getALLClaimsItems: build.query({
       query: (arg: Record<string, any>) => ({
-        url: "/found-items",
+        url: "/claims",
         method: "GET",
         params: arg,
       }),
@@ -41,17 +41,17 @@ export const foundItemAPi = baseApi.injectEndpoints({
       providesTags: [tagTypes.foundReports],
     }),
 
-    getSingleFoundItem: build.query({
+    getSingleClaimsItem: build.query({
       query: (id) => ({
-        url: `/found-items/${id}`,
+        url: `/claims/${id}`,
         method: "GET",
       }),
       providesTags: [tagTypes.foundReports],
     }),
 
-    deleteSingleFoundItem: build.mutation({
+    deleteSingleClaimsItem: build.mutation({
       query: (id) => ({
-        url: `/found-items/${id}`,
+        url: `/claims/${id}`,
         method: "DELETE",
       }),
       invalidatesTags: [tagTypes.foundReports],
@@ -60,9 +60,9 @@ export const foundItemAPi = baseApi.injectEndpoints({
 });
 
 export const {
-  useCreateFoundReportMutation,
-  useDeleteSingleFoundItemMutation,
-  useGetALLFoundItemsQuery,
-  useGetSingleFoundItemQuery,
-  useUpdateFoundReportMutation,
-} = foundItemAPi;
+  useCreateClaimMutation,
+  useUpdateClaimReportMutation,
+  useDeleteSingleClaimsItemMutation,
+  useGetALLClaimsItemsQuery,
+  useGetSingleClaimsItemQuery,
+} = claimApi;

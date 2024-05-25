@@ -10,7 +10,7 @@ import {
 } from "@/redux/api/lostItemApi";
 import { toast } from "sonner";
 const SingleCard = ({ item }: { item: LostItem }) => {
-  console.log(item);
+  // console.log(item);
   const [deleteReport, { isLoading }] = useDeleteSingleLostItemMutation();
   const [updateReport, { isLoading: isUpdateLoading }] =
     useUpdateLostReportMutation();
@@ -29,7 +29,10 @@ const SingleCard = ({ item }: { item: LostItem }) => {
   };
   //
   const handleFound = async () => {
-    const data = { founded: !item.founded };
+    if (item.founded) {
+      return;
+    }
+    const data = { founded: true };
     const res = await updateReport({ data, id: item?.id });
     // console.log(res);
     if (res?.data?.id) {
@@ -52,9 +55,9 @@ const SingleCard = ({ item }: { item: LostItem }) => {
         <Button
           onClick={handleFound}
           disabled={isLoading || isUpdateLoading}
-          color={`${item.founded ? "error" : "success"}`}
+          color={`${item.founded ? "inherit" : "success"}`}
         >
-          {item.founded ? "Lost" : "Found"}
+          {item.founded ? "Founded" : "Found"}
         </Button>
         <DeleteIcon
           color={`${isLoading || isUpdateLoading ? "disabled" : "error"}`}

@@ -3,6 +3,7 @@
 import CustomForm from "@/components/Forms/CustomForm";
 import CustomInput from "@/components/Forms/CustomInput";
 import CustomSelectField from "@/components/Forms/CustomSelectField";
+import { useCreateFoundReportMutation } from "@/redux/api/foundItemAPi";
 import { useCreateLostReportMutation } from "@/redux/api/lostItemApi";
 
 import { userLogin } from "@/services/actions/userLogin";
@@ -49,7 +50,7 @@ const validationSchema = z.object({
 const page = () => {
   const router = useRouter();
   const [error, setError] = useState("");
-  const [createReport] = useCreateLostReportMutation();
+  const [createReport, { isLoading }] = useCreateFoundReportMutation();
 
   const handleCreate = async (values: FieldValues) => {
     // console.log(values);
@@ -57,9 +58,9 @@ const page = () => {
     try {
       const res = await createReport(values);
       // console.log(res);
-      if (res?.data.success) {
-        // toast.success(res?.message);
-        // router.push("/");
+      if (res?.data?.id) {
+        toast.success("Found Report Created Successfully!");
+        router.push("/dashboard/user/found-reports");
       } else {
         setError(res.data.message);
         // console.log(res);
@@ -186,6 +187,7 @@ const page = () => {
                 }}
                 fullWidth={true}
                 type="submit"
+                disabled={isLoading}
               >
                 Create
               </Button>

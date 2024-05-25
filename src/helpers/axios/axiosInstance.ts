@@ -32,7 +32,7 @@ instance.interceptors.response.use(
   function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
-    // console.log(response);
+
     let responseObject: ResponseSuccessType | {} = {};
     if (response.data.success) {
       responseObject = {
@@ -45,6 +45,7 @@ instance.interceptors.response.use(
         // meta: response?.data?.meta,
       };
     }
+    // console.log(responseObject);
 
     return responseObject;
   },
