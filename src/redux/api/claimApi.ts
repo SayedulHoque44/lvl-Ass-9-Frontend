@@ -26,6 +26,16 @@ export const claimApi = baseApi.injectEndpoints({
       invalidatesTags: [tagTypes.foundReports, tagTypes.claimReports],
     }),
 
+    updateClaimStatusReport: build.mutation({
+      query: ({ data, id }) => ({
+        url: `/claims/claim-status/${id}`,
+        method: "PUT",
+        contentType: "application/json",
+        data,
+      }),
+      invalidatesTags: [tagTypes.foundReports, tagTypes.claimReports],
+    }),
+
     getALLClaimsItems: build.query({
       query: (arg: Record<string, any>) => ({
         url: "/claims",
@@ -65,4 +75,5 @@ export const {
   useDeleteSingleClaimsItemMutation,
   useGetALLClaimsItemsQuery,
   useGetSingleClaimsItemQuery,
+  useUpdateClaimStatusReportMutation,
 } = claimApi;

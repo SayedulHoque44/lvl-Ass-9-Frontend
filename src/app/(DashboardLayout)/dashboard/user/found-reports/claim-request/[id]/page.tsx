@@ -15,12 +15,12 @@ import React, { useEffect, useState } from "react";
 import { DataGrid, GridColDef, GridDeleteIcon } from "@mui/x-data-grid";
 import { Claim, TFoundItem } from "@/types/foundItem";
 import { dateFormatter } from "@/utils/dateFormatter";
-import { useUpdateClaimReportMutation } from "@/redux/api/claimApi";
+import { useUpdateClaimStatusReportMutation } from "@/redux/api/claimApi";
 
 const page = ({ params }: { params: { id: string } }) => {
   const { data, isLoading } = useGetSingleFoundItemQuery(params.id);
-  const [updateClaimReport, { isLoading: isClaimLoading }] =
-    useUpdateClaimReportMutation();
+  const [updateClaimStatusReport, { isLoading: isClaimLoading }] =
+    useUpdateClaimStatusReportMutation();
   const [updateStatus, setUpdateStatus] = useState("");
   const [updatedClaims, setUpdatedClaims] = useState();
   //   console.log(data);
@@ -31,7 +31,7 @@ const page = ({ params }: { params: { id: string } }) => {
   const handleUpdateStatus = async (event: SelectChangeEvent, id: string) => {
     setUpdateStatus(event.target.value);
     const data = { status: event.target.value };
-    await updateClaimReport({ data, id });
+    await updateClaimStatusReport({ data, id });
   };
 
   useEffect(() => {

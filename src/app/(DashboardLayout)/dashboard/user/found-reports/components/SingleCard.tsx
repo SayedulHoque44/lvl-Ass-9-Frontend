@@ -31,7 +31,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 
 const SingleCard = ({ item }: { item: TFoundItem }) => {
   const [deleteReport, { isLoading }] = useDeleteSingleFoundItemMutation();
-  console.log(item);
+  // console.log(item);
   // const [updateReport, { isLoading: isUpdateLoading }] =
   //   useUpdateFoundReportMutation();
 

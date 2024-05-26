@@ -28,7 +28,7 @@ const AuthButton = () => {
           <Button color="error" onClick={handleLogOut}>
             Logout
           </Button>
-          <Link href={`/dashboard/my-profile/${userInfo?.id}`}>
+          <Link href={`/dashboard/my-profile`}>
             <Avatar></Avatar>
           </Link>
         </>

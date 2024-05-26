@@ -14,7 +14,7 @@ const page = () => {
     limit: 100,
     userId: userInfo?.id,
   });
-  console.log(data);
+  // console.log(data);
   return (
     <Box>
       <Typography variant="h5" my={2}>

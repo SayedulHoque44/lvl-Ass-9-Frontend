@@ -54,7 +54,7 @@ export const drawerItems = (role: UserRole, id: string): DrawerItem[] => {
   return [
     ...roleMenus,
     { title: "Recent Post", path: `recent-posts`, icon: ViewModuleIcon },
-    { title: "My Profile", path: `my-profile/${id}`, icon: PersonIcon },
+    { title: "My Profile", path: `my-profile`, icon: PersonIcon },
     { title: "Change Password", path: `change-password`, icon: KeyOffIcon },
   ];
 };

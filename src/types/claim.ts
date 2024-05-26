@@ -10,6 +10,7 @@ interface FoundItem {
   id: string;
   userId: string;
   category: string;
+  user: User;
   name: string;
   description: string;
   DateAndlocation: string;
