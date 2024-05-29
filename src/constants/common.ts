@@ -1,0 +1,15 @@
+export const categoriesSelect = [
+  "Electronics",
+  "Clothing",
+  "Accessories",
+  "Documents & IDs",
+  "Keys",
+  "Personal Items",
+  "Health & Personal Care",
+  "Sports Equipment",
+  "Home & Garden",
+  "Pets",
+  "Toys",
+  "Tools",
+  "Miscellaneous",
+];

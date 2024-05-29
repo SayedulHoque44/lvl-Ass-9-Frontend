@@ -10,8 +10,14 @@ import AddIcon from "@mui/icons-material/Add";
 import { usePathname } from "next/navigation";
 import SingleCard from "./components/SingleCard";
 import { useGetALLFoundItemsQuery } from "@/redux/api/foundItemAPi";
+import { TFoundItem } from "@/types/foundItem";
+import { getUserInfo } from "@/services/auth.services";
 const page = () => {
-  const { data } = useGetALLFoundItemsQuery({ limit: 100 });
+  const userInfo = getUserInfo();
+  const { data } = useGetALLFoundItemsQuery({
+    limit: 100,
+    userId: userInfo?.id,
+  });
 
   // console.log(data);
   return (
@@ -29,7 +35,7 @@ const page = () => {
         </Link>
 
         <Grid container gap={4} justifyContent={"center"} mt={5}>
-          {data?.data?.map((item: LostItem) => (
+          {data?.data?.map((item: TFoundItem) => (
             <SingleCard key={item?.id} item={item} />
           ))}
         </Grid>

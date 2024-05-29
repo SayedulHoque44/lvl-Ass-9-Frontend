@@ -14,18 +14,11 @@ export const drawerItems = (role: UserRole, id: string): DrawerItem[] => {
 
   switch (role) {
     case USER_ROLE.ADMIN:
-      roleMenus.push(
-        {
-          title: "Dashboard",
-          path: `${role}`,
-          icon: DashboardIcon,
-        },
-        {
-          title: "User Managment",
-          path: `${role}/user-managment`,
-          icon: GroupIcon,
-        }
-      );
+      roleMenus.push({
+        title: "User Managment",
+        path: `${role}/user-managment`,
+        icon: GroupIcon,
+      });
       break;
 
     case USER_ROLE.USER:
@@ -52,6 +45,7 @@ export const drawerItems = (role: UserRole, id: string): DrawerItem[] => {
   }
 
   return [
+    { title: "Dashboard", path: `/`, icon: ViewModuleIcon },
     ...roleMenus,
     { title: "Recent Post", path: `recent-posts`, icon: ViewModuleIcon },
     { title: "My Profile", path: `my-profile`, icon: PersonIcon },

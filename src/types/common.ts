@@ -35,3 +35,11 @@ export type IGenericErrorMessage = {
 };
 
 export const Gender = ["MALE", "FEMALE"];
+
+export interface AdminMeta {
+  totalUser: number;
+  totolClaimRequest: number;
+  totolClaimedReport: number;
+  totolFoundItems: number;
+  totolLostItems: number;
+}

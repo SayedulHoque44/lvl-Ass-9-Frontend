@@ -18,15 +18,17 @@ const RecentLostItemPosts = () => {
           Recent Lost Item Reports
         </Typography>
 
-        <Grid container gap={4} justifyContent={"center"}>
-          {data?.data?.map((item: LostItem) => (
-            <Card key={item.id} item={item}>
-              <Link href={`/lost-item/${item.id}`}>
-                <Button>See Details</Button>
-              </Link>
-            </Card>
-          ))}
-        </Grid>
+        {data?.data?.length > 0 && (
+          <Grid container gap={4} justifyContent={"center"}>
+            {data?.data?.map((item: LostItem) => (
+              <Card key={item.id} item={item}>
+                <Link href={`/lost-item/${item.id}`}>
+                  <Button>See Details</Button>
+                </Link>
+              </Card>
+            ))}
+          </Grid>
+        )}
       </Box>
     </Container>
   );

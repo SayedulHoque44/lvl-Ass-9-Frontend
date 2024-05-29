@@ -7,6 +7,7 @@ import { Box, Chip, Grid, Stack, Typography } from "@mui/material";
 import SingleShowCard from "./components/SingleShowCard";
 
 import { TClaim } from "@/types/claim";
+import { DataGrid } from "@mui/x-data-grid";
 
 const page = () => {
   const userInfo = getUserInfo();
@@ -15,6 +16,7 @@ const page = () => {
     userId: userInfo?.id,
   });
   // console.log(data);
+
   return (
     <Box>
       <Typography variant="h5" my={2}>

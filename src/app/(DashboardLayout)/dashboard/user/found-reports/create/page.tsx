@@ -3,6 +3,7 @@
 import CustomForm from "@/components/Forms/CustomForm";
 import CustomInput from "@/components/Forms/CustomInput";
 import CustomSelectField from "@/components/Forms/CustomSelectField";
+import { categoriesSelect } from "@/constants/common";
 import { useCreateFoundReportMutation } from "@/redux/api/foundItemAPi";
 import { useCreateLostReportMutation } from "@/redux/api/lostItemApi";
 
@@ -15,22 +16,6 @@ import React, { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-
-const categories = [
-  "Electronics",
-  "Clothing",
-  "Accessories",
-  "Documents & IDs",
-  "Keys",
-  "Personal Items",
-  "Health & Personal Care",
-  "Sports Equipment",
-  "Home & Garden",
-  "Pets",
-  "Toys",
-  "Tools",
-  "Miscellaneous",
-];
 
 const validationSchema = z.object({
   name: z
@@ -142,7 +127,7 @@ const page = () => {
                 </Grid>
                 <Grid item md={6}>
                   <CustomSelectField
-                    items={categories}
+                    items={categoriesSelect}
                     name="category"
                     label="Item Category"
                     fullWidth={true}

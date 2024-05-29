@@ -11,6 +11,7 @@ import { setegid } from "process";
 import Link from "next/link";
 import { useUpdateUserMutation } from "@/redux/api/userApi";
 import { toast } from "sonner";
+import { TUser } from "@/types/user";
 
 const validationSchema = z.object({
   name: z.string().min(1, "User Name cannot be empty"),

@@ -32,7 +32,7 @@ const LoginPage = () => {
       if (res?.data?.accessToken) {
         toast.success(res?.message);
         storeUserInfo({ accessToken: res?.data?.accessToken });
-        router.push("/");
+        router.push("/dashboard/my-profile");
       } else {
         setError(res.message);
         // console.log(res);
@@ -97,7 +97,7 @@ const LoginPage = () => {
               onSubmit={handleLogin}
               resolver={zodResolver(validationSchema)}
               defaultValues={{
-                email: "user1@example.com",
+                email: "user1@gmail.com",
                 password: "12345",
               }}
             >
