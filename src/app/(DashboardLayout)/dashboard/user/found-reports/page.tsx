@@ -39,6 +39,11 @@ const page = () => {
             <SingleCard key={item?.id} item={item} />
           ))}
         </Grid>
+        {data?.data.length === 0 && (
+          <Typography color={"red"}>
+            No Found Report Found! Create One!
+          </Typography>
+        )}
       </Box>
     </Container>
   );

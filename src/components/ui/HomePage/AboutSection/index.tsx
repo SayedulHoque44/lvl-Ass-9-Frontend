@@ -14,10 +14,11 @@ const AboutSection = () => {
             Our Dream is to <br /> Solution the problem
           </Typography>
           <Typography fontWeight={500} letterSpacing={2} lineHeight={2}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
-            repudiandae nulla sed, aliquam iste ullam voluptatum assumenda
-            magnam voluptatibus similique quis ex adipisci, quam excepturi!
-            Quisquam repellat recusandae fugit alias?
+            Welcome to Lost and Found Solution, your trusted platform for
+            reuniting lost items with their rightful owners. Our mission is to
+            create a secure and user-friendly space where individuals can both
+            report lost items and post details of found items, facilitating the
+            return of valuables to their proper owners.
           </Typography>
         </Grid>
         <Grid

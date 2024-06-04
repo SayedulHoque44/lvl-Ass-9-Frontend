@@ -79,7 +79,7 @@ const UserManagmentPage = () => {
       },
     },
   ];
-  console.log(users);
+  // console.log(users);
 
   return (
     <Box>

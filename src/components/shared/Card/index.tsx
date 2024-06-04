@@ -1,12 +1,11 @@
 import { LostItem } from "@/types/lostItems";
-import { Button, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import FlagCircleOutlinedIcon from "@mui/icons-material/FlagCircleOutlined";
 import { ReactNode } from "react";
 import Link from "next/link";
 
 const Card = ({ item, children }: { item: any; children?: ReactNode }) => {
-  // console.log(item);
   return (
     <Grid
       boxShadow={1}
@@ -22,19 +21,26 @@ const Card = ({ item, children }: { item: any; children?: ReactNode }) => {
         },
       }}
     >
-      <Image
-        src={"https://i.ibb.co/f2cn20J/windows-WJPHTJEtgzw-unsplash.jpg"}
-        height={200}
-        width={200}
-        alt="img"
-      />
+      {item?.image ? (
+        <Image src={item?.image} height={400} width={400} alt="img" />
+      ) : (
+        <Image
+          src={`https://media.istockphoto.com/id/1409329028/vector/no-picture-available-placeholder-thumbnail-icon-illustration-design.jpg?s=612x612&w=0&k=20&c=_zOuJu755g2eEUioiOUdz_mHKJQJn-tDgIAhQzyeKUQ=`}
+          height={400}
+          width={400}
+          alt="img"
+        />
+      )}
       <Typography fontWeight={600}>{item?.name}</Typography>
       <Typography>{item?.description}</Typography>
       <Stack direction={"row"} alignItems={"center"} gap={2} my={2}>
         <FlagCircleOutlinedIcon />
         <Typography>{item?.DateAndlocation}</Typography>
       </Stack>
-      {children && children}
+
+      <Stack direction={"column"} justifyContent={"end"}>
+        {children && children}
+      </Stack>
     </Grid>
   );
 };

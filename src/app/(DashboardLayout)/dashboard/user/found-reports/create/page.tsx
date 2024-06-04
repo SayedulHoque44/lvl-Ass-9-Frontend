@@ -108,10 +108,10 @@ const page = () => {
               onSubmit={handleCreate}
               resolver={zodResolver(validationSchema)}
               defaultValues={{
-                name: "oneplus 7T",
+                name: "",
                 category: "Electronics",
-                description: "desc",
-                DateAndlocation: "12/03/24",
+                description: "",
+                DateAndlocation: "12/03/24, Dhaka",
                 phone: "",
                 image: "",
               }}
@@ -160,7 +160,7 @@ const page = () => {
                 <Grid item md={6}>
                   <CustomInput
                     name="image"
-                    label="image"
+                    label="image url"
                     type="text"
                     fullWidth={true}
                   />

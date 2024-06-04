@@ -28,12 +28,9 @@ const page = ({ params }: TProps) => {
           },
         }}
       >
-        <Image
-          src={"https://i.ibb.co/f2cn20J/windows-WJPHTJEtgzw-unsplash.jpg"}
-          height={400}
-          width={400}
-          alt="img"
-        />
+        {data?.image && (
+          <Image src={data?.image} height={400} width={400} alt="img" />
+        )}
       </Stack>
       <Typography>{data?.description}</Typography>
       <Stack direction={"row"} alignItems={"center"} gap={2} my={2}>

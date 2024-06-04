@@ -1,3 +1,4 @@
+"use client";
 import { AdminMeta } from "@/types";
 import {
   Box,
@@ -52,7 +53,7 @@ const SingleMetaCard = ({ item }: { item: TMetaDataProps }) => {
           </Typography>
         </Stack>
         <Typography variant="h6" textAlign={"center"}>
-          {item.title}
+          {item?.title}
         </Typography>
       </Stack>
     </Grid>

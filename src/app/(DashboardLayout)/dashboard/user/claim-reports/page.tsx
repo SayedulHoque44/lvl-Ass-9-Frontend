@@ -29,6 +29,9 @@ const page = () => {
           : data?.data?.map((item: TClaim) => (
               <SingleShowCard item={item} key={item.id} />
             ))}
+        {data?.data.length === 0 && (
+          <Typography color={"red"}>No Claim Report Found!</Typography>
+        )}
       </Stack>
     </Box>
   );

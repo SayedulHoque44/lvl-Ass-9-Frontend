@@ -26,7 +26,7 @@ const SingleLostCard = ({ item }: { item: TFoundItem }) => {
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Link href={`/found-item/${item.id}`}>
+        <Link href={`/lost-item/${item.id}`}>
           <Button>See Details</Button>
         </Link>
       </Stack>

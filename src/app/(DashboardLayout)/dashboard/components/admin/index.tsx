@@ -70,13 +70,14 @@ const AdminMeta = () => {
     }
   }, [data]);
 
+  // console.log(data);
   return (
     <Box>
       {isLoading && "Loading..."}
       {!isLoading && metaData?.length > 0 && (
         <Grid container gap={2} justifyContent={"center"}>
           {metaData?.map((item) => (
-            <SingleMetaCard key={item.title} item={item} />
+            <SingleMetaCard key={item?.title} item={item} />
           ))}
         </Grid>
       )}
