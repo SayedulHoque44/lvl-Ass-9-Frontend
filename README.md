@@ -9,9 +9,10 @@
 
 ## login cridential
 
-- Admin 1 :
+- Admin 1 : admin1@gmail.com - 1234
 - User 1 : sayed1@gmail.com - 1234
 - User 2 : almun@gmail.com - 1234
+- User 3 : user3@gmail.com - 1234
 
 ## User Tech:
 
